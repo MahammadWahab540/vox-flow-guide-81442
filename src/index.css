@@ -91,3 +91,75 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* AI Loader Animations */
+@layer components {
+  .loader-wrapper {
+    @apply relative flex items-center justify-center gap-1 text-2xl font-semibold;
+  }
+
+  .loader-letter {
+    @apply inline-block;
+    animation: loader-letter-anim 2s ease-in-out infinite;
+  }
+
+  .loader {
+    @apply absolute rounded-full;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    animation: loader-rotate 2s ease-in-out infinite;
+  }
+
+  .loader-thinking {
+    box-shadow: 0 10px 20px 0 hsl(var(--foreground) / 0.8) inset,
+      0 20px 30px 0 hsl(var(--primary)) inset,
+      0 60px 60px 0 hsl(var(--primary) / 0.6) inset;
+  }
+
+  .loader-speaking {
+    box-shadow: 0 10px 20px 0 hsl(var(--foreground) / 0.8) inset,
+      0 20px 30px 0 hsl(var(--accent)) inset,
+      0 60px 60px 0 hsl(var(--accent) / 0.6) inset;
+  }
+
+  .loader-listening {
+    box-shadow: 0 10px 20px 0 hsl(var(--foreground) / 0.8) inset,
+      0 20px 30px 0 hsl(var(--success)) inset,
+      0 60px 60px 0 hsl(var(--success) / 0.6) inset;
+  }
+
+  .loader-error {
+    box-shadow: 0 10px 20px 0 hsl(var(--foreground) / 0.8) inset,
+      0 20px 30px 0 hsl(var(--destructive)) inset,
+      0 60px 60px 0 hsl(var(--destructive) / 0.6) inset;
+  }
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(450deg);
+  }
+}
+
+@keyframes loader-letter-anim {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  40% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
