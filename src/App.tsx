@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Authentication from "./pages/Authentication";
 import Dashboard from "./pages/Dashboard";
 import Confirmation from "./pages/Confirmation";
+import Voice from "./pages/Voice";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Authentication />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/voice" element={<Voice />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
